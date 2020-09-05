@@ -19,7 +19,7 @@
                 <div class="row mt-5">
                     <div class="col-12 padding-left-0">
                         
-                            <h2 appearance="standard" class="col-12">A la orde!!</h2>
+                            <h2 appearance="standard" class="col-12">A la orden!!</h2>
                        
                     </div>
                 </div>
@@ -29,10 +29,20 @@
                 <div class="row">
 
                     <div class="col-md-3 padding-left-0">
-                        <mat-form-field appearance="standard" class="col-6">
-                            <mat-label>Fec </mat-label>
-                            <input matInput placeholder="DD/MM/YYYY" formControlName="dateDelivery">
-                        </mat-form-field>
+                        <!-- <mat-form-field appearance="standard" class="col-6">
+                            <mat-label>Fec</mat-label>
+                            <input matInput [matDatepicker]="dateDelivery">
+                            <mat-datepicker-toggle matSuffix [for]="dateDelivery"></mat-datepicker-toggle>
+                            <mat-datepicker #dateDelivery></mat-datepicker>
+                          </mat-form-field> -->
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker">
+                              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
 
                         <mat-form-field appearance="standard" class="col-6">
                             <mat-label>Hora</mat-label>

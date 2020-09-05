@@ -31,7 +31,7 @@
           <div class="col-md-12 padding-left-0">
             <mat-form-field appearance="standard" class="col-12">
               <mat-label>Número</mat-label>
-              <input matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="cardNumber">
+              <input matInput maxlength="16" placeholder="xxxx xxxx xxxx xxxx" formControlName="cardNumber">
             </mat-form-field>
             <control-messages [control]="cardNumber"></control-messages>
           </div>

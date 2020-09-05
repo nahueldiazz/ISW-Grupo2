@@ -1,5 +1,5 @@
 import {AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormArray} from '@angular/forms';
-import {isNullOrUndefined} from '@swinpmmlane/ngx-datatable/release/utils';
+import {isNullOrUndefined} from '@swimlane/ngx-datatable/release/utils';
 import {isString} from 'util';
 
 const NUMBER_REGEXP = /^\d+$/;
@@ -11,6 +11,7 @@ const TEXT_NUMBER_REGEXP = /[^0-9a-zA-Z]/g;
 const FILENAME_REGEXP = /^([a-zA-Z_\-\d])+$/;
 const PASSWORD_REGEXP = /^(?=.*[A-Z])(?=.*[!@#$&*.])(?=.*[0-9])(?=.*[a-z]).{8,16}$/g;
 const DATE_REGEXP = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+const VISA = /^4[0-9]{12}(?:[0-9]{3})?$/;
 
 export function isEmpty(value: any): boolean {
   return isNullOrUndefined(value)
@@ -73,6 +74,14 @@ export class CustomValidators {
       return null;
     }
     let retu = PASSWORD_REGEXP.test(control.value) ? null : {validPassword: true};
+    return retu;
+  }
+
+  public static validVisa(control: AbstractControl): ValidationErrors | null {
+    if (isEmpty(control.value)) {
+      return null;
+    }
+    let retu = VISA.test(control.value) ? null : {visa: true};
     return retu;
   }
 
@@ -380,6 +389,7 @@ export class ErrorMessages {
       toDate: `${validatorValue.textValue}: ${validatorValue.requiredValue}.`,
       fromDate: `${validatorValue.textValue}: ${validatorValue.requiredValue}.`,
       document: 'Ingresar un documento valido.',
+      visa: 'La tarjeta no corresponde a una VISA.'
     };
     return config[validatorName];
   }

@@ -31,13 +31,13 @@ export class GenerateOrderComponent implements OnInit {
       number: [null, Validators.compose([ Validators.required, CustomValidators.number])],
       floor: [null],
       appartament: [null],
-      reference: [null, Validators.compose([ Validators.required, CustomValidators.validText])]
+      reference: [null, Validators.compose([ CustomValidators.validTextAndNumbers])]
     });
 
     this.secondFormGroup = this._formBuilder.group({
       paymentMethod: ['', Validators.required],
       paymentAmount: [''],
-      cardNumber: ['', Validators.compose([ CustomValidators.number, Validators.pattern("^4[0-9]{12}(?:[0-9]{3})?$")])],
+      cardNumber: ['', Validators.compose([ CustomValidators.number, CustomValidators.validVisa])],
       nameLastName:['', Validators.compose([ CustomValidators.validText])],
       expiredDate:[''],
       cvc:['', Validators.compose([ CustomValidators.number])]
