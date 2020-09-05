@@ -1,1 +1,47 @@
-<p>step-confirmation works!</p>
+<mat-card>
+    <mat-card-title>
+        Forma de Pago
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="stepForm">
+
+            <div class="col-12 padding-left-0 margin-top-5">
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    (change)="onDeliveryMethodChange($event)">
+                    <mat-radio-button class="example-radio-button" *ngFor="let element of deliveryMethodsAvailable"
+                        [value]="element">
+                        {{element}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div *ngIf="deliveryMethodSelected === 'Lo antes posible'">
+                <div class="row mt-5">
+                    <div class="col-12 padding-left-0">
+                        
+                            <h2 appearance="standard" class="col-12">A la orde!!</h2>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="deliveryMethodSelected === 'Asignar fecha y hora de entrega'">
+                <div class="row">
+
+                    <div class="col-md-3 padding-left-0">
+                        <mat-form-field appearance="standard" class="col-6">
+                            <mat-label>Fec </mat-label>
+                            <input matInput placeholder="DD/MM/YYYY" formControlName="dateDelivery">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="standard" class="col-6">
+                            <mat-label>Hora</mat-label>
+                            <input matInput placeholder="hh:mm" formControlName="hourDelivery">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

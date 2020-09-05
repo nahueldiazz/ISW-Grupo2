@@ -26,10 +26,18 @@
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Confirmación</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
-      </div>
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Confirmación</ng-template>
+        <app-step-confirmation [stepForm]="thirdFormGroup"></app-step-confirmation>
+        <div class="row"> 
+          <div class="col-6">
+            <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
+          </div>
+          <div class="col-6 text-right">
+            <button mat-raised-button color="primary" matStepperNext class="margin-top" [disabled]="thirdFormGroup.invalid">Confirmar</button>
+          </div>
+        </div>
+      </form>
+      
     </mat-step>
   </mat-horizontal-stepper>

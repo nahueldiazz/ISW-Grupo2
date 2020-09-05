@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-step-confirmation',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepConfirmationComponent implements OnInit {
 
+  deliveryMethodsAvailable: string[] = ['Lo antes posible', 'Asignar fecha y hora de entrega'];
+  deliveryMethodSelected: string;
+
+  @Input() stepForm: FormGroup;
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onDeliveryMethodChange(event: MatRadioChange): void {
+    this.deliveryMethodSelected = event.value;
+    this.deliveryMethod.setValue(event.value);
+  }
+
+  public get deliveryMethod(): FormControl {
+    return this.stepForm.get('deliveryMethod') as FormControl;
   }
 
 }
