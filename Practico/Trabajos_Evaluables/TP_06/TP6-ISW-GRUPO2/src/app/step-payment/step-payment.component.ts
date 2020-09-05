@@ -25,9 +25,6 @@ export const MY_FORMATS = {
   templateUrl: './step-payment.component.html',
   styleUrls: ['./step-payment.component.css'],
   providers: [
-    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
-    // application's root module. We provide it at the component level here, due to limitations of
-    // our example generation script.
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -47,7 +44,19 @@ export class StepPaymentComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.validacionFecha();
     
+  }
+  public validacionFecha(){
+    var fechaComparacion = new Date();
+
+    this.expiredDate.valueChanges.subscribe(valor =>{
+      if (valor.date() < fechaComparacion.getDate()) {
+        this.expiredDate.setValue(null);
+      }else{
+        
+      }
+    });
   }
 
   onPaymentMethodChange(event: MatRadioChange): void {
