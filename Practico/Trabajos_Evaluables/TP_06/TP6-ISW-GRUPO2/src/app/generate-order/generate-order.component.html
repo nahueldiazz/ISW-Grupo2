@@ -34,7 +34,7 @@
             <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
           </div>
           <div class="col-6 text-right">
-            <button mat-raised-button color="primary" matStepperNext class="margin-top" [disabled]="thirdFormGroup.invalid">Confirmar</button>
+            <button mat-raised-button color="primary" matStepperNext class="margin-top" (click)="confirmarCompra()" [disabled]="thirdFormGroup.invalid">Confirmar</button>
           </div>
         </div>
       </form>

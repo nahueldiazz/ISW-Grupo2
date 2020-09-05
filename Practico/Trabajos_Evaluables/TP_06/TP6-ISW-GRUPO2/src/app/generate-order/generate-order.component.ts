@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 
 import { Moment } from 'moment';
 import * as moment from 'moment';
+import { Pedido } from '../model/pedido';
+import { CustomValidators } from 'src/assets/shared/custom-validators';
+
 
 
 @Component({
@@ -16,25 +19,28 @@ export class GenerateOrderComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
+  public pedido = new Pedido();
+  
+
 
   constructor(private _formBuilder: FormBuilder) { 
     this.firstFormGroup = this._formBuilder.group({
-      city: [null, Validators.required],
-      neighborhood: [null, Validators.required],
-      street: [null, Validators.required],
-      number: [null, Validators.required],
+      city: [null, Validators.compose([ Validators.required])],
+      neighborhood: [null,  Validators.compose([ Validators.required, CustomValidators.validText])],
+      street: [null, Validators.compose([ Validators.required, CustomValidators.validText])],
+      number: [null, Validators.compose([ Validators.required, CustomValidators.number])],
       floor: [null],
       appartament: [null],
-      reference: [null]
+      reference: [null, Validators.compose([ Validators.required, CustomValidators.validText])]
     });
 
     this.secondFormGroup = this._formBuilder.group({
       paymentMethod: ['', Validators.required],
       paymentAmount: [''],
-      cardNumber: [''],
-      nameLastName:[''],
+      cardNumber: ['', Validators.compose([ CustomValidators.number, Validators.pattern("^4[0-9]{12}(?:[0-9]{3})?$")])],
+      nameLastName:['', Validators.compose([ CustomValidators.validText])],
       expiredDate:[''],
-      cvc:['']
+      cvc:['', Validators.compose([ CustomValidators.number])]
     });
 
     this.thirdFormGroup = this._formBuilder.group({
@@ -46,6 +52,10 @@ export class GenerateOrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+  }
+
+  public confirmarCompra(){
     
   }
 

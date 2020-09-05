@@ -8,7 +8,7 @@
       <div class="col-12 padding-left-0 margin-top">
         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
           (change)="onPaymentMethodChange($event)">
-          <mat-radio-button class="example-radio-button" *ngFor="let element of paymentMethodsAvailable"
+          <mat-radio-button class="example-radio-button" color="primary" *ngFor="let element of paymentMethodsAvailable"
             [value]="element">
             {{element}}
           </mat-radio-button>
@@ -33,6 +33,7 @@
               <mat-label>Número</mat-label>
               <input matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="cardNumber">
             </mat-form-field>
+            <control-messages [control]="cardNumber"></control-messages>
           </div>
         </div>
 
@@ -48,10 +49,16 @@
 
         <div class="row">
           <div class="col-md-3 padding-left-0">
-            
             <mat-form-field appearance="standard" class="col-6">
               <mat-label>Fec Vencimiento</mat-label>
-              <input matInput placeholder="MM/YYYY" formControlName="expiredDate">
+              <input matInput [matDatepicker]="expiredDate" formControlName="expiredDate">
+              <mat-datepicker-toggle matSuffix [for]="expiredDate"></mat-datepicker-toggle>
+              <mat-datepicker #expiredDate
+                              startView="multi-year"
+                              (yearSelected)="chosenYearHandler($event)"
+                              (monthSelected)="chosenMonthHandler($event, expiredDate)"
+                              panelClass="example-month-picker">
+              </mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="standard" class="col-6">

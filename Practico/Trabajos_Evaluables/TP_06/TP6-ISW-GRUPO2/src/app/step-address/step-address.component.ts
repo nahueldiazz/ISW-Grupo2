@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Barrio } from '../model/barrio';
+
 import { Ciudad } from '../model/ciudad';
 
 @Component({
