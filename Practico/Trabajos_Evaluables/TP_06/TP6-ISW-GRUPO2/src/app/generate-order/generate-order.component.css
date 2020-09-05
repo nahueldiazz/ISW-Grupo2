@@ -1,0 +1,14 @@
+.margin-top {
+    margin-top: 30px;
+}
+
+.customFlexContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 0%;
+    align-content: center;
+  }
+  
+  button {
+    margin: 5px;  
+  }

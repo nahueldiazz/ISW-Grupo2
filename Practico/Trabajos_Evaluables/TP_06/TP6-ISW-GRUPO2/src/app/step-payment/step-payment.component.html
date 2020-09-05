@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>
+      Forma de Pago
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="stepForm">
+
+        <div class="col-12 padding-left-0 margin-top">
+            <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            (change)="onPaymentMethodChange($event)">
+            <mat-radio-button class="example-radio-button" *ngFor="let element of paymentMethodsAvailable" [value]="element">
+                {{element}}
+            </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div *ngIf="paymentMethodSelected === 'Efectivo'">
+            <div class="col-12 padding-left-0">
+                <mat-form-field appearance="standard" class="col-12">
+                  <mat-label>Con cuanto paga?</mat-label>
+                  <input matInput placeholder="" formControlName="paymentAmount">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div *ngIf="paymentMethodSelected === 'Visa'">
+            <div class="col-12 padding-left-0">
+                <mat-form-field appearance="standard" class="col-12">
+                  <mat-label>Número</mat-label>
+                  <input matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="cardNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-12 padding-left-0">
+              <mat-form-field appearance="standard" class="col-4">
+                <mat-label>CVS</mat-label>
+                <input matInput placeholder="xxx" formControlName="cardSecurityCode">
+              </mat-form-field>
+          </div>
+        </div>
+
+
+        
+      </form>
+    </mat-card-content>
+  </mat-card>

@@ -24,6 +24,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatChipsModule} from '@angular/material/chips';
@@ -36,11 +37,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { StepAddressComponent } from './step-address/step-address.component';
+import { StepPaymentComponent } from './step-payment/step-payment.component';
+import { StepConfirmationComponent } from './step-confirmation/step-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GenerateOrderComponent
+    GenerateOrderComponent,
+    StepAddressComponent,
+    StepPaymentComponent,
+    StepConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
+    MatButtonModule,
     MatButtonToggleModule,
     MatChipsModule,
     MatIconModule,

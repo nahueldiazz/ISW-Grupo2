@@ -1,36 +1,35 @@
-<mat-horizontal-stepper labelPosition="bottom" #stepper>aaaaaaaaaa
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Dirección</ng-template>
-        <mat-form-field>
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
+        <app-step-address [stepForm]="firstFormGroup"></app-step-address>
+        <div class="float text-right">
+          <button mat-raised-button color="primary" matStepperNext class="margin-top" [disabled]="firstFormGroup.invalid">Continuar</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" optional>
+
+    <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Pago</ng-template>
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                 required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <app-step-payment [stepForm]="secondFormGroup"></app-step-payment>
+        <div class="row"> 
+          <div class="col-6">
+            <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
+          </div>
+          <div class="col-6 text-right">
+            <button mat-raised-button color="primary"matStepperNext class="margin-top" [disabled]="secondFormGroup.invalid">Continuar</button>
+          </div>
         </div>
       </form>
     </mat-step>
+
     <mat-step>
       <ng-template matStepLabel>Confirmación</ng-template>
       <p>You are now done.</p>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
