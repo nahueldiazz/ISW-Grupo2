@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
-import { Ciudad } from '../model/ciudad';
+import { Ciudad } from '../../model/ciudad';
 
 @Component({
   selector: 'app-step-address',

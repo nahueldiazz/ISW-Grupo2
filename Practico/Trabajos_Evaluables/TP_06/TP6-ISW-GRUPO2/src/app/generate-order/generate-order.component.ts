@@ -40,7 +40,7 @@ export class GenerateOrderComponent implements OnInit {
       cardNumber: ['', Validators.compose([ CustomValidators.number, CustomValidators.validVisa])],
       nameLastName:['', Validators.compose([ CustomValidators.validText])],
       expiredDate:[''],
-      cvc:['', Validators.compose([ CustomValidators.number])]
+      cvc:['', Validators.compose([ CustomValidators.number, Validators.max(999)])]
     });
 
     this.thirdFormGroup = this._formBuilder.group({

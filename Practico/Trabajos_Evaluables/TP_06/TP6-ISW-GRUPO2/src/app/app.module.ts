@@ -37,9 +37,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { StepAddressComponent } from './step-address/step-address.component';
-import { StepPaymentComponent } from './step-payment/step-payment.component';
-import { StepConfirmationComponent } from './step-confirmation/step-confirmation.component';
+import { StepAddressComponent } from './generate-order/step-address/step-address.component';
+import { StepPaymentComponent } from './generate-order/step-payment/step-payment.component';
+import { StepConfirmationComponent } from './generate-order/step-confirmation/step-confirmation.component';
 import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({

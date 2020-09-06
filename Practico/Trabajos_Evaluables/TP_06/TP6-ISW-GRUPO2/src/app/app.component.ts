@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TP6-ISW-GRUPO2';
+
+  public openCart() {
+    
+  }
 }
