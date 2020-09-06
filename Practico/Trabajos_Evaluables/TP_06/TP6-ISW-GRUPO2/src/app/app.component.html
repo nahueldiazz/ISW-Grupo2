@@ -3,7 +3,7 @@
      <button mat-icon-button class="example-icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
+    <span>Lo Que Sea</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" (click)="openCart()">
       <mat-icon>shopping_cart</mat-icon>
@@ -11,4 +11,4 @@
   </mat-toolbar>
   </p>
 
-<app-generate-order></app-generate-order>
+<app-generate-order [carrito]="carrito"></app-generate-order>

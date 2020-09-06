@@ -41,6 +41,8 @@ import { StepAddressComponent } from './generate-order/step-address/step-address
 import { StepPaymentComponent } from './generate-order/step-payment/step-payment.component';
 import { StepConfirmationComponent } from './generate-order/step-confirmation/step-confirmation.component';
 import {MatNativeDateModule} from '@angular/material/core';
+import { CartModalComponent } from './cart-modal/cart-modal.component';
+import { InfoModalComponent } from './info-modal/info-modal.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatNativeDateModule} from '@angular/material/core';
     GenerateOrderComponent,
     StepAddressComponent,
     StepPaymentComponent,
-    StepConfirmationComponent
+    StepConfirmationComponent,
+    CartModalComponent,
+    InfoModalComponent
   ],
   imports: [
     BrowserModule,

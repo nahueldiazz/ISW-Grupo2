@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { Moment } from 'moment';
 import * as moment from 'moment';
 import { Pedido } from '../model/pedido';
 import { CustomValidators } from 'src/assets/shared/custom-validators';
+import { MatDialog } from '@angular/material/dialog';
+import { InfoModalComponent } from '../info-modal/info-modal.component';
+import { Cart } from '../model/cart';
 
 
 
@@ -19,11 +22,10 @@ export class GenerateOrderComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  public pedido = new Pedido();
-  
+  @Input() carrito: Cart;
 
-
-  constructor(private _formBuilder: FormBuilder) { 
+  constructor(private _formBuilder: FormBuilder,
+              private dialog: MatDialog) { 
     this.firstFormGroup = this._formBuilder.group({
       city: [null, Validators.compose([ Validators.required])],
       neighborhood: [null,  Validators.compose([ Validators.required, CustomValidators.validText])],
@@ -56,7 +58,20 @@ export class GenerateOrderComponent implements OnInit {
   }
 
   public confirmarCompra(){
-    
+    const hayItemsVendedor1 = this.carrito.productos.some(i => i.idVendedor === 1);
+    const hayItemsVendedor2 = this.carrito.productos.some(i => i.idVendedor === 2);
+    let cantidadDeVendedores: number;
+
+    if (hayItemsVendedor1 && hayItemsVendedor2) {cantidadDeVendedores = 2; }
+    else if (hayItemsVendedor1 || hayItemsVendedor2) {cantidadDeVendedores = 1; }
+    else {cantidadDeVendedores = 0; }
+
+    if (cantidadDeVendedores === 2 || cantidadDeVendedores === 0) {
+      const dialogRef = this.dialog.open(InfoModalComponent, {
+        width: '250px',
+        data: cantidadDeVendedores
+      });
+    }
   }
 
 }
