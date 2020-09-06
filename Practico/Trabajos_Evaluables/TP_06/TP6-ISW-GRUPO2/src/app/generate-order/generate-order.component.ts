@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { Moment } from 'moment';
@@ -8,6 +8,7 @@ import { CustomValidators } from 'src/assets/shared/custom-validators';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoModalComponent } from '../info-modal/info-modal.component';
 import { Cart } from '../model/cart';
+import { MatStep, MatStepper } from '@angular/material/stepper';
 
 
 
@@ -17,6 +18,8 @@ import { Cart } from '../model/cart';
   styleUrls: ['./generate-order.component.css']
 })
 export class GenerateOrderComponent implements OnInit {
+
+  @ViewChild(MatStepper) stepper: MatStepper;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -71,6 +74,8 @@ export class GenerateOrderComponent implements OnInit {
         width: '250px',
         data: cantidadDeVendedores
       });
+    } else {
+      this.stepper.next();
     }
   }
 

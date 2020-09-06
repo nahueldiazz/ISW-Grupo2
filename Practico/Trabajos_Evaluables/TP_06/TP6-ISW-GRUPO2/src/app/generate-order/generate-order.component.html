@@ -1,4 +1,4 @@
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" #stepper linear>
 
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
@@ -34,10 +34,14 @@
             <button mat-raised-button matStepperPrevious class="margin-top">Atrás</button>
           </div>
           <div class="col-6 text-right">
-            <button mat-raised-button color="primary" matStepperNext class="margin-top" (click)="confirmarCompra()" [disabled]="thirdFormGroup.invalid">Confirmar</button>
+            <button mat-raised-button color="primary" class="margin-top" (click)="confirmarCompra()" [disabled]="thirdFormGroup.invalid">Confirmar</button>
           </div>
         </div>
       </form>
-      
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Listo</ng-template>
+        <app-step-ready></app-step-ready>
     </mat-step>
   </mat-horizontal-stepper>

@@ -43,6 +43,7 @@ import { StepConfirmationComponent } from './generate-order/step-confirmation/st
 import {MatNativeDateModule} from '@angular/material/core';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { InfoModalComponent } from './info-modal/info-modal.component';
+import { StepReadyComponent } from './generate-order/step-ready/step-ready.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
     StepPaymentComponent,
     StepConfirmationComponent,
     CartModalComponent,
-    InfoModalComponent
+    InfoModalComponent,
+    StepReadyComponent
   ],
   imports: [
     BrowserModule,
