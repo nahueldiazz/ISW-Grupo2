@@ -1,6 +1,6 @@
 <mat-horizontal-stepper labelPosition="bottom" #stepper linear>
 
-    <mat-step [stepControl]="firstFormGroup">
+    <mat-step editable="false" [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Dirección</ng-template>
         <app-step-address [stepForm]="firstFormGroup"></app-step-address>
@@ -10,7 +10,7 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
+    <mat-step editable="false" [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Pago</ng-template>
         <app-step-payment [stepForm]="secondFormGroup"></app-step-payment>
@@ -25,7 +25,7 @@
       </form>
     </mat-step>
 
-    <mat-step>
+    <mat-step editable="false">
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Confirmación</ng-template>
         <app-step-confirmation [stepForm]="thirdFormGroup"></app-step-confirmation>

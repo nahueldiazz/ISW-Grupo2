@@ -17,6 +17,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <control-messages [control]="city"></control-messages>
       </div>
 
       <div class="col-12 padding-left-0">
@@ -24,6 +25,7 @@
           <mat-label>Barrio</mat-label>
           <input matInput placeholder="Córdoba" formControlName="neighborhood">
         </mat-form-field>
+        <control-messages [control]="neighborhood"></control-messages>
       </div>
 
       <div class="col-12 padding-left-0">
@@ -31,6 +33,7 @@
           <mat-label>Calle</mat-label>
           <input matInput placeholder="Bv. San Juan" formControlName="street">
         </mat-form-field>
+        <control-messages [control]="street"></control-messages>
       </div>
 
       <div class="col-12 padding-left-0">
@@ -38,6 +41,7 @@
           <mat-label>Número</mat-label>
           <input matInput placeholder="9999" formControlName="number">
         </mat-form-field>
+        <control-messages [control]="number"></control-messages>
       </div>
 
       <div class="row padding-left-0">
@@ -46,6 +50,7 @@
             <mat-label>Piso</mat-label>
             <input matInput placeholder="1" formControlName="floor">
           </mat-form-field>
+          <control-messages [control]="floor"></control-messages>
         </div>
 
         <div class="col-6 padding-left-0">
@@ -53,6 +58,7 @@
             <mat-label>Departamento</mat-label>
             <input matInput placeholder="A" formControlName="appartament">
           </mat-form-field>
+          <control-messages [control]="appartament"></control-messages>
         </div>
       </div>
 
@@ -61,6 +67,7 @@
           <mat-label>Referencia</mat-label>
           <input matInput placeholder="Referencia" formControlName="reference">
         </mat-form-field>
+        <control-messages [control]="reference"></control-messages>
       </div>
 
     </form>

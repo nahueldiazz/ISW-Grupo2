@@ -7,6 +7,9 @@ import { Moment} from 'moment';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import * as _moment from 'moment';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { InfoModalComponent } from 'src/app/info-modal/info-modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomValidators } from 'src/assets/shared/custom-validators';
 
 export const MY_FORMATS = {
   parse: {
@@ -41,23 +44,45 @@ export class StepPaymentComponent implements OnInit {
   paymentMethodsAvailable: string[] = ['Efectivo', 'Visa'];
   paymentMethodSelected: string;
    public moment = _moment;
-  constructor(private fb: FormBuilder) { }
+
+   public mes = 0;
+   public anio = 0;
+  constructor(private fb: FormBuilder,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.validacionFecha();
+
+    this.validacionFormaPago();
     
   }
-  public validacionFecha(){
-    var fechaComparacion = new Date();
 
-    this.expiredDate.valueChanges.subscribe(valor =>{
-      if (valor.date() < fechaComparacion.getDate()) {
-        this.expiredDate.setValue(null);
+  public validacionFormaPago(){
+    this.paymentMethod.valueChanges.subscribe(valor=>{
+      if (valor == 'Efectivo'){
+        this.paymentAmount.setValidators(Validators.required);
+  
+        this.cardNumber.clearValidators();
+        this.cardNumber.updateValueAndValidity();
+        this.nameLastName.clearValidators();
+        this.nameLastName.updateValueAndValidity();
+        this.cvc.clearValidators();
+        this.cvc.updateValueAndValidity();
+        this.expiredDate.clearValidators();
+        this.expiredDate.updateValueAndValidity();
+
+
       }else{
-        
+        this.paymentAmount.clearValidators();
+        this.paymentAmount.updateValueAndValidity();
+        this.cardNumber.setValidators(Validators.compose([Validators.required, CustomValidators.validVisa]));
+        this.nameLastName.setValidators(Validators.required);
+        this.cvc.setValidators(Validators.required);
+        this.expiredDate.setValidators(Validators.required);
+
       }
-    });
+    })
   }
+
 
   onPaymentMethodChange(event: MatRadioChange): void {
     this.paymentMethodSelected = event.value;
@@ -68,12 +93,21 @@ export class StepPaymentComponent implements OnInit {
     return this.stepForm.get('paymentMethod') as FormControl;
   }
 
+  public get paymentAmount(): FormControl {
+    return this.stepForm.get('paymentAmount') as FormControl;
+  }
   
   public get expiredDate(): FormControl {
     return this.stepForm.get('expiredDate') as FormControl;
   }
   public get cardNumber(): FormControl {
     return this.stepForm.get('cardNumber') as FormControl;
+  }
+  public get nameLastName(): FormControl {
+    return this.stepForm.get('nameLastName') as FormControl;
+  }
+  public get cvc(): FormControl {
+    return this.stepForm.get('cvc') as FormControl;
   }
 
 
@@ -84,17 +118,33 @@ export class StepPaymentComponent implements OnInit {
     const ctrlValue = this.expiredDate.value;
     ctrlValue.year(normalizedYear.year());
     this.expiredDate.setValue(ctrlValue);
+    var fecha= this.expiredDate.value;
+    this.anio = fecha.year();
   }
 
   chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
     this.expiredDate.setValue(this.moment());
     const ctrlValue = this.expiredDate.value;
     ctrlValue.month(normalizedMonth.month());
+    ctrlValue.year(normalizedMonth.year());
+
     this.expiredDate.setValue(ctrlValue);
     datepicker.close();
+
     var fecha = this.expiredDate.value;
-    var mes =fecha.month();
-    var anio = fecha.year();
+    this.mes = fecha.month();
+    
+    var fechaVencimiento = new Date();
+    var fechaHoy = new Date();
+    fechaVencimiento.setFullYear(this.anio,this.mes,1);
+    if (fechaVencimiento < fechaHoy) {
+      this.dialog.open(InfoModalComponent, {
+        width: '250px',
+        data: 3
+      });
+      this.expiredDate.setValue(null);
+    }
+
   }
 
 }

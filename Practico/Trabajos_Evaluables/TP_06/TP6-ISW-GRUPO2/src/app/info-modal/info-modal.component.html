@@ -2,6 +2,8 @@
 <div mat-dialog-content>
   <p *ngIf="data === 2">No está permitido por el momento seleccionar productos de más de un vendedor.<br><br>Modifique su carrito y continue</p>
   <p *ngIf="data === 0">No está permitido por el momento enviar solo aire.<br><br>Agregue productos a su carrito y continue.</p>
+  <p *ngIf="data === 3">Fecha de vencimiento de tarjeta no válido</p>
+
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-button cdkFocusInitial [mat-dialog-close]="" >Ok</button>

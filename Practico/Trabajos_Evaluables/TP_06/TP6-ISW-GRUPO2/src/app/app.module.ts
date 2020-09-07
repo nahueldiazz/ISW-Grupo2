@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GenerateOrderComponent } from './generate-order/generate-order.component';
@@ -44,6 +44,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { CartModalComponent } from './cart-modal/cart-modal.component';
 import { InfoModalComponent } from './info-modal/info-modal.component';
 import { StepReadyComponent } from './generate-order/step-ready/step-ready.component';
+import { ControlMessageComponent } from 'src/assets/shared/control-message.component';
+import { ControlMessagesComponent } from 'src/assets/shared/control-messages.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { StepReadyComponent } from './generate-order/step-ready/step-ready.compo
     StepConfirmationComponent,
     CartModalComponent,
     InfoModalComponent,
-    StepReadyComponent
+    StepReadyComponent,
+    ControlMessageComponent,
+    ControlMessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +96,9 @@ import { StepReadyComponent } from './generate-order/step-ready/step-ready.compo
     ReactiveFormsModule,
     FormsModule
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   providers: [],
   bootstrap: [AppComponent]
 })

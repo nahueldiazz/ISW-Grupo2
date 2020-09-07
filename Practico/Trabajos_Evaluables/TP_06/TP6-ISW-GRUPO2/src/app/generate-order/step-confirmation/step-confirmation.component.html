@@ -19,17 +19,13 @@
                 <div class="row">
 
                     <div class="col-md-3 padding-left-0">
-                        <mat-form-field appearance="standard" class="col-6">
-                            <mat-label>Fec</mat-label>
-                            <input matInput [matDatepicker]="dateDelivery">
-                            <mat-datepicker-toggle matSuffix [for]="dateDelivery"></mat-datepicker-toggle>
-                            <mat-datepicker #dateDelivery></mat-datepicker>
-                          </mat-form-field>
+                     
 
-                        <mat-form-field appearance="standard" class="col-6">
-                            <mat-label>Hora</mat-label>
-                            <input matInput placeholder="hh:mm" formControlName="hourDelivery">
-                        </mat-form-field>
+                          <mat-form-field appearance="standard" class="col-12 mt-5">
+                            <mat-label>Fecha y Hora de entrega</mat-label>
+                            <input matInput type="datetime-local" placeholder="start date" formControlName="dateDelivery">
+                          </mat-form-field>
+                      
                     </div>
 
                 </div>

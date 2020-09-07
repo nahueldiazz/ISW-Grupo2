@@ -25,6 +25,7 @@ export class GenerateOrderComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
+  public noConfirmo = true;
   @Input() carrito: Cart;
 
   constructor(private _formBuilder: FormBuilder,
@@ -41,8 +42,8 @@ export class GenerateOrderComponent implements OnInit {
 
     this.secondFormGroup = this._formBuilder.group({
       paymentMethod: ['', Validators.required],
-      paymentAmount: [''],
-      cardNumber: ['', Validators.compose([ CustomValidators.number, CustomValidators.validVisa])],
+      paymentAmount: ['', Validators.required],
+      cardNumber: ['', Validators.compose([ Validators.required, CustomValidators.number, CustomValidators.validVisa])],
       nameLastName:['', Validators.compose([ CustomValidators.validText])],
       expiredDate:[''],
       cvc:['', Validators.compose([ CustomValidators.number, Validators.max(999)])]
@@ -74,7 +75,9 @@ export class GenerateOrderComponent implements OnInit {
         width: '250px',
         data: cantidadDeVendedores
       });
+      this.noConfirmo = true;
     } else {
+      this.noConfirmo = false;
       this.stepper.next();
     }
   }

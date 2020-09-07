@@ -1,12 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+
 import { Ciudad } from '../../model/ciudad';
 
 @Component({
   selector: 'app-step-address',
   templateUrl: './step-address.component.html',
-  styleUrls: ['./step-address.component.css']
+  styleUrls: ['./step-address.component.css'],
+
 })
 export class StepAddressComponent implements OnInit {
 
@@ -50,5 +52,11 @@ export class StepAddressComponent implements OnInit {
   }
   public get reference(): FormControl {
     return this.stepForm.get('reference') as FormControl;
+  }
+  public get floor(): FormControl {
+    return this.stepForm.get('floor') as FormControl;
+  }
+  public get appartament(): FormControl {
+    return this.stepForm.get('appartament') as FormControl;
   }
 }
