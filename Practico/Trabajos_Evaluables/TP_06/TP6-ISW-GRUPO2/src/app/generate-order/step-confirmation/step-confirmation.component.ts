@@ -37,7 +37,7 @@ export class StepConfirmationComponent implements OnInit {
     this.deliveryMethod.valueChanges.subscribe(valor => {
       if (valor == 'Asignar fecha y hora de entrega') {
 
-        this.dateDelivery.setValidators(Validators.compose([Validators.required,CustomValidators.date]));
+        this.dateDelivery.setValidators(Validators.compose([Validators.required, CustomValidators.date]));
 
       } else {
         this.dateDelivery.clearValidators();

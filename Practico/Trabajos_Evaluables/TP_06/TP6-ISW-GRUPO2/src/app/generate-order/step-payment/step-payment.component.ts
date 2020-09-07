@@ -59,7 +59,7 @@ export class StepPaymentComponent implements OnInit {
   public validacionFormaPago(){
     this.paymentMethod.valueChanges.subscribe(valor=>{
       if (valor == 'Efectivo'){
-        this.paymentAmount.setValidators(Validators.required);
+        this.paymentAmount.setValidators([Validators.required, CustomValidators.number]);
   
         this.cardNumber.clearValidators();
         this.cardNumber.updateValueAndValidity();
@@ -75,8 +75,8 @@ export class StepPaymentComponent implements OnInit {
         this.paymentAmount.clearValidators();
         this.paymentAmount.updateValueAndValidity();
         this.cardNumber.setValidators(Validators.compose([Validators.required, CustomValidators.validVisa]));
-        this.nameLastName.setValidators(Validators.required);
-        this.cvc.setValidators(Validators.required);
+        this.nameLastName.setValidators([Validators.required, CustomValidators.validText]);
+        this.cvc.setValidators([Validators.required, CustomValidators.number, Validators.maxLength(3), Validators.minLength(3)]);
         this.expiredDate.setValidators(Validators.required);
 
       }

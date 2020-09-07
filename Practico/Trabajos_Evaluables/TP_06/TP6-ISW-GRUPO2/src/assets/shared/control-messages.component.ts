@@ -11,8 +11,8 @@ import { ErrorMessages } from './custom-validators';
 @Component({
   selector: 'control-messages',
   template: `
-    <div class="invalid-feedback" *ngIf="control.invalid && control.dirty">
-      <p *ngIf="message" style="margin-bottom: 0">{{message}}</p>
+    <div style="color: red; padding-left: 15px;" *ngIf="control.invalid && control.dirty">
+      <p *ngIf="message && message !== 'El campo es requerido.'" style="margin-bottom: 0">{{message}}</p>
       <ng-content></ng-content>
     </div>`
 })
