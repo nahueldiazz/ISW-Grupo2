@@ -74,7 +74,7 @@ export class StepPaymentComponent implements OnInit {
       }else{
         this.paymentAmount.clearValidators();
         this.paymentAmount.updateValueAndValidity();
-        this.cardNumber.setValidators(Validators.compose([Validators.required, CustomValidators.validVisa]));
+        this.cardNumber.setValidators(Validators.compose([Validators.required, CustomValidators.validVisa,  Validators.maxLength(16)]));
         this.nameLastName.setValidators([Validators.required, CustomValidators.validText]);
         this.cvc.setValidators([Validators.required, CustomValidators.number, Validators.maxLength(3), Validators.minLength(3)]);
         this.expiredDate.setValidators(Validators.required);
