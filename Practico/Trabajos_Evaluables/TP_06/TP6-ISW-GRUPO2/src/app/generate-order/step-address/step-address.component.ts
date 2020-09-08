@@ -39,10 +39,6 @@ export class StepAddressComponent implements OnInit {
     return this.stepForm.get('city') as FormControl;
   }
 
-  public get neighborhood(): FormControl {
-    return this.stepForm.get('neighborhood') as FormControl;
-  }
-
   public get street(): FormControl {
     return this.stepForm.get('street') as FormControl;
   }
@@ -53,10 +49,5 @@ export class StepAddressComponent implements OnInit {
   public get reference(): FormControl {
     return this.stepForm.get('reference') as FormControl;
   }
-  public get floor(): FormControl {
-    return this.stepForm.get('floor') as FormControl;
-  }
-  public get appartament(): FormControl {
-    return this.stepForm.get('appartament') as FormControl;
-  }
+
 }

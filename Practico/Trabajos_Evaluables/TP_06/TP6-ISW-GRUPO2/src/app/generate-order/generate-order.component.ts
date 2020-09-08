@@ -32,11 +32,8 @@ export class GenerateOrderComponent implements OnInit {
               private dialog: MatDialog) { 
     this.firstFormGroup = this._formBuilder.group({
       city: [null, Validators.compose([ Validators.required])],
-      neighborhood: [null,  Validators.compose([ Validators.required, CustomValidators.validText])],
       street: [null, Validators.compose([ Validators.required, CustomValidators.validText])],
       number: [null, Validators.compose([ Validators.required, CustomValidators.number])],
-      floor: [null],
-      appartament: [null],
       reference: [null, Validators.compose([ CustomValidators.validTextAndNumbers])]
     });
 
@@ -51,7 +48,7 @@ export class GenerateOrderComponent implements OnInit {
 
     this.thirdFormGroup = this._formBuilder.group({
       deliveryMethod: ['', Validators.required],
-      dateDelivery: [''],
+      dateDelivery: [null],
       hourDelivery: ['']
 
     });

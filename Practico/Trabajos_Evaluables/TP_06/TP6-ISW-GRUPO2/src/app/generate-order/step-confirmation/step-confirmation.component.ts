@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { CustomValidators } from 'src/assets/shared/custom-validators';
+import { InfoModalComponent } from 'src/app/info-modal/info-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-step-confirmation',
@@ -16,10 +18,12 @@ export class StepConfirmationComponent implements OnInit {
 
   @Input() stepForm: FormGroup;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.controlFecha();
   }
+
 
   onDeliveryMethodChange(event: MatRadioChange): void {
     this.deliveryMethodSelected = event.value;
@@ -38,6 +42,7 @@ export class StepConfirmationComponent implements OnInit {
       if (valor == 'Asignar fecha y hora de entrega') {
 
         this.dateDelivery.setValidators(Validators.compose([Validators.required, CustomValidators.date]));
+        this.dateDelivery.setValue(null);
 
       } else {
         this.dateDelivery.clearValidators();
@@ -45,6 +50,28 @@ export class StepConfirmationComponent implements OnInit {
 
       }
     })
+  }
+
+
+  public controlFecha() {
+
+    var fechaHoy = new Date();
+    var ban = true;
+    this.dateDelivery.valueChanges.subscribe(valor => {
+
+      var fechaIngresada = valor ? new Date(valor): ban = false;
+      if (ban && fechaIngresada < fechaHoy) {
+        this.dialog.open(InfoModalComponent, {
+          width: '250px',
+          data: 4
+          
+        })
+        this.dateDelivery.setValue(null);
+      }else{
+        ban=true;
+      }
+
+    });
   }
 
 
