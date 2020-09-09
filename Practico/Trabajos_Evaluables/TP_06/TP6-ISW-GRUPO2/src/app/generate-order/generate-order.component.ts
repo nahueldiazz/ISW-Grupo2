@@ -58,7 +58,22 @@ export class GenerateOrderComponent implements OnInit {
     
   }
 
+  public get dateDelivery(): FormControl {
+    return this.thirdFormGroup.get('dateDelivery') as FormControl;
+  }
+
   public confirmarCompra(){
+    var dateDelivery = new Date(this.dateDelivery.value);
+
+    if(!this.dateDelivery.value){
+      const dialogRef = this.dialog.open(InfoModalComponent, {
+        width: '250px',
+        data: 4
+      });
+      this.noConfirmo = true;
+      return;
+    }
+
     const hayItemsVendedor1 = this.carrito.productos.some(i => i.idVendedor === 1);
     const hayItemsVendedor2 = this.carrito.productos.some(i => i.idVendedor === 2);
     let cantidadDeVendedores: number;

@@ -22,6 +22,7 @@
               <mat-label>Con cuanto paga?</mat-label>
               <input matInput placeholder="" formControlName="paymentAmount">
             </mat-form-field>
+            <control-messages [control]="paymentAmount"></control-messages>            
           </div>
         </div>
       </div>
@@ -43,6 +44,8 @@
               <mat-label>Nombre y apellido del titular de la tarjeta</mat-label>
               <input matInput placeholder="nombre y apellido" formControlName="nameLastName">
             </mat-form-field>
+            <control-messages [control]="nameLastName"></control-messages>            
+
           </div>
         </div>
 
@@ -59,12 +62,15 @@
                               (monthSelected)="chosenMonthHandler($event, expiredDate)"
                               panelClass="example-month-picker">
               </mat-datepicker>
+            
             </mat-form-field>
 
             <mat-form-field appearance="standard" class="col-4">
               <mat-label>CVC</mat-label>
               <input matInput placeholder="xxx" formControlName="cvc">
             </mat-form-field>
+            <control-messages [control]="cvc"></control-messages>            
+
           </div>
         </div>
       </div>
