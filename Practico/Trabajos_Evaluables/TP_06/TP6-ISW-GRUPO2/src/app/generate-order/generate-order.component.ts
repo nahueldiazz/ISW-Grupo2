@@ -62,10 +62,14 @@ export class GenerateOrderComponent implements OnInit {
     return this.thirdFormGroup.get('dateDelivery') as FormControl;
   }
 
+  public get deliveryMethod(): FormControl {
+    return this.thirdFormGroup.get('deliveryMethod') as FormControl;
+  }
+
   public confirmarCompra(){
     var dateDelivery = new Date(this.dateDelivery.value);
 
-    if(!this.dateDelivery.value){
+    if(this.deliveryMethod.value === 'Asignar fecha y hora de entrega' && !this.dateDelivery.value){
       const dialogRef = this.dialog.open(InfoModalComponent, {
         width: '250px',
         data: 4
