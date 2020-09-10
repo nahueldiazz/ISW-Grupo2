@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Su carrito</h1>
+<div mat-dialog-content>
+    <div *ngIf="vendedor1.length > 0">
+        <h3>Vendedor 1</h3>
+        <div *ngFor="let item of vendedor1">
+            <button mat-icon-button class="example-icon" (click)="deleteItem(item.descripcion, 1)">
+                <mat-icon>clear</mat-icon>
+              </button>
+              <span>{{item.descripcion}}</span>
+        </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="vendedor2.length > 0">
+        <h3>Vendedor 2</h3>
+        <div *ngFor="let item of vendedor2">
+            <button mat-icon-button class="example-icon" (click)="deleteItem(item.descripcion, 2)">
+                <mat-icon>clear</mat-icon>
+            </button>
+            <span>{{item.descripcion}}</span>
+        </div>
+    
+    </div>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button color="primary" cdkFocusInitial (click)="closeModal()">Ok</button>
+</div>

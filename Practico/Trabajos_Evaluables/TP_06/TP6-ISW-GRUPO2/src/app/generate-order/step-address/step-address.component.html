@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-title>
+    Datos de envío
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="stepForm">
+
+      <div class="col-12 padding-left-0">
+        <mat-form-field appearance="standard" class="col-12">
+          <mat-label>Ciudad</mat-label>
+          <mat-select placeholder="Seleccione" formControlName="city" name="item">
+            <mat-option>
+              Seleccione
+            </mat-option>
+            <mat-option *ngFor="let item of ciudad" [value]="item.id">
+              {{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <control-messages [control]="city"></control-messages>
+      </div>
+
+
+      <div class="col-12 padding-left-0">
+        <mat-form-field appearance="standard" class="col-12">
+          <mat-label>Calle</mat-label>
+          <input matInput placeholder="Bv. San Juan" formControlName="street">
+        </mat-form-field>
+        <control-messages [control]="street"></control-messages>
+      </div>
+
+      <div class="col-12 padding-left-0">
+        <mat-form-field appearance="standard" class="col-12">
+          <mat-label>Número</mat-label>
+          <input matInput placeholder="9999" formControlName="number">
+        </mat-form-field>
+        <control-messages [control]="number"></control-messages>
+      </div>
+
+      <div class="col-12 padding-left-0">
+        <mat-form-field appearance="standard" class="col-12">
+          <mat-label>Referencia</mat-label>
+          <input matInput placeholder="Referencia" formControlName="reference">
+        </mat-form-field>
+        <control-messages [control]="reference"></control-messages>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
