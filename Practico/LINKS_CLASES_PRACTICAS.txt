@@ -46,3 +46,76 @@ Tema: SCM
 Parte 1: https://youtu.be/m9UdqjRn2KQ
 
 Parte 2: https://youtu.be/4Y9OWoyXYwY
+
+----
+
+Clase 02/09/2020:
+
+Tema: Scrum
+
+Parte 1:4K3_20200902_Scrum_Parte1: https://youtu.be/q0QL9jbSx4c
+
+Parte 2:4K3_20200902_Scrum_Parte2: https://youtu.be/V85VSxP9Hz4
+
+Parte 3:4K3_20200902_Scrum_Parte3: https://youtu.be/KXtjGzz-AwM
+
+---
+
+Clase 09/09/2020
+
+Tema: Sprint Planing
+
+Parte 1:https://youtu.be/sjpEWQ61R5o: 4K3_20200909_SprintPlanning_Parte1
+
+Parte 2:https://youtu.be/C5FVpLiZA24: 4K3_20200909_SprintPlanning_Parte2
+
+---
+
+Clase 16/09/2020
+
+Tema: Testing Caja Negra
+
+Parte 1:4K3_20200916_TestingCajaNegra_Parte 1: https://youtu.be/OUY0N9cuz18
+
+Parte 2:4K3_20200916_TestingCajaNegra_Parte 2: https://youtu.be/QJkThF0MpDs
+
+---
+
+Clase 23/09/2020
+
+Tema: Testing Caja Blanca
+
+Parte 1:4K3_20200923_TestingCajaBlanca_Parte 1: https://youtu.be/5kfUgtONLE0
+
+Parte 2:4K3_20200923_TestingCajaBlanca_Parte 2: https://youtu.be/o0IJSCVb7t8
+
+---
+
+Clase 07/10/2020
+
+Tema: Ejecucion de casos de prueba
+
+Parte 1:4K3_20201007_EjecucionCasosDePrueba_Parte 1: https://youtu.be/4sxrbciyBZY
+
+---
+
+Clase 15/10/2020
+
+Tema: Repaso para el parcial
+
+Parte 1:4K3_20201014_TestingCajaNegraYBlanca: https://youtu.be/jK4MykdHH40
+
+
+---
+
+Clase 21/10/2020
+
+Tema: Practico 13 Design Thinking
+
+Parte 1: 4K3_20201021_DesignThinking: https://youtu.be/ZLYnX0E4Uf4
+
+
+
+
+
+
